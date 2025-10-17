@@ -4,7 +4,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState("welcome");
   const [selectedFormat, setSelectedFormat] = useState("api");
 
-  // Auto-redirect from success page after 10 seconds
   useEffect(() => {
     if (currentPage === "success") {
       const timer = setTimeout(() => {
@@ -21,10 +20,8 @@ function App() {
 
   const WelcomePage = () => (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
-      {/* Logo placeholder */}
       <div className="w-40 h-40 bg-gray-300 rounded-lg mb-16"></div>
 
-      {/* Main text */}
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
           Добро пожаловать
@@ -34,7 +31,6 @@ function App() {
         </h2>
       </div>
 
-      {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={() => setCurrentPage("dashboard")}
@@ -55,20 +51,16 @@ function App() {
   const EnterprisePage = () => (
     <div className="min-h-screen bg-white px-4 py-8">
       <div className="max-w-2xl mx-auto">
-        {/* Header */}
         <h1 className="text-3xl font-bold text-black text-center mb-12">
           Индустиальные данные Москвы
         </h1>
 
-        {/* Form */}
         <div className="space-y-8">
-          {/* Company Data Section */}
           <div>
             <h2 className="text-xl font-semibold text-black mb-6">
               Введите данные предприятия
             </h2>
 
-            {/* Industry Dropdown */}
             <div className="mb-4">
               <div className="relative">
                 <select className="w-full bg-gray-200 text-black px-4 py-3 rounded-md appearance-none cursor-pointer">
@@ -90,7 +82,6 @@ function App() {
               </div>
             </div>
 
-            {/* Company Name Input */}
             <div className="mb-8">
               <input
                 type="text"
@@ -100,13 +91,11 @@ function App() {
             </div>
           </div>
 
-          {/* Data Format Section */}
           <div>
             <h2 className="text-xl font-semibold text-black mb-6">
               Выберите формат загрузки данных
             </h2>
 
-            {/* Format Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button
                 onClick={() => setSelectedFormat("api")}
@@ -140,7 +129,6 @@ function App() {
               </button>
             </div>
 
-            {/* API Key Input - only show when API is selected */}
             {selectedFormat === "api" && (
               <div className="mb-8">
                 <input
@@ -151,7 +139,6 @@ function App() {
               </div>
             )}
 
-            {/* File Upload - only show when Excel is selected */}
             {selectedFormat === "excel" && (
               <div className="mb-8">
                 <div className="w-full bg-gray-200 px-4 py-8 rounded-md border-2 border-dashed border-gray-400 flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
@@ -187,7 +174,6 @@ function App() {
             )}
           </div>
 
-          {/* Submit Button */}
           <div className="flex justify-center pt-8">
             <button
               onClick={handleSubmit}
@@ -204,12 +190,10 @@ function App() {
   const SuccessPage = () => (
     <div className="min-h-screen bg-white px-4 py-8">
       <div className="max-w-2xl mx-auto">
-        {/* Header */}
         <h1 className="text-3xl font-bold text-black text-center mb-12">
           Индустиальные данные Москвы
         </h1>
 
-        {/* Success Message */}
         <div className="bg-gray-300 rounded-lg p-16 text-center">
           <h2 className="text-4xl font-bold text-black mb-6">Спасибо!</h2>
           <p className="text-2xl text-black">Данные загружены успешно</p>
@@ -221,10 +205,8 @@ function App() {
   const DashboardPage = () => (
     <div className="min-h-screen bg-white px-6 py-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <h1 className="text-4xl font-bold text-black mb-8">Дашборд</h1>
 
-        {/* Filter Dropdowns */}
         <div className="flex gap-4 mb-8">
           <div className="relative">
             <select className="bg-gray-200 text-black px-4 py-2 rounded-md appearance-none cursor-pointer pr-8">
@@ -268,43 +250,32 @@ function App() {
           </div>
         </div>
 
-        {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-          {/* Left Column - Charts */}
           <div className="lg:col-span-3 space-y-6">
-            {/* Top Row - 3 Charts */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-gray-300 h-48 rounded-lg"></div>
               <div className="bg-gray-300 h-48 rounded-lg"></div>
               <div className="bg-gray-300 h-48 rounded-lg"></div>
             </div>
 
-            {/* Bottom Row - 3 Charts */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-gray-300 h-48 rounded-lg"></div>
               <div className="bg-gray-300 h-48 rounded-lg"></div>
               <div className="bg-gray-300 h-48 rounded-lg"></div>
             </div>
 
-            {/* Investment Indicators Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Pie Chart */}
               <div className="bg-gray-300 h-64 rounded-lg"></div>
-
-              {/* Federal Indicators */}
               <div className="bg-gray-300 h-64 rounded-lg"></div>
             </div>
           </div>
 
-          {/* Right Column - Statistics */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Statistics Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-gray-400 p-6 rounded-lg"></div>
               <div className="bg-gray-400 p-6 rounded-lg"></div>
             </div>
 
-            {/* Government Support Measures */}
             <div className="bg-gray-300 h-96 rounded-lg"></div>
           </div>
         </div>
