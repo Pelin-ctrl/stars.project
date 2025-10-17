@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [currentPage, setCurrentPage] = useState("welcome");
   const [selectedFormat, setSelectedFormat] = useState("api");
+  const [targetPage, setTargetPage] = useState("");
 
   useEffect(() => {
     if (currentPage === "success") {
@@ -16,6 +17,15 @@ function App() {
 
   const handleSubmit = () => {
     setCurrentPage("success");
+  };
+
+  const handleAuthRequest = (destination) => {
+    setTargetPage(destination);
+    setCurrentPage("auth");
+  };
+
+  const handleLogin = () => {
+    setCurrentPage(targetPage);
   };
 
   const WelcomePage = () => (
@@ -44,17 +54,65 @@ function App() {
 
       <div className="flex flex-col sm:flex-row gap-4">
         <button
-          onClick={() => setCurrentPage("dashboard")}
+          onClick={() => handleAuthRequest("dashboard")}
           className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors"
         >
           Руководству ДИПП
         </button>
         <button
-          onClick={() => setCurrentPage("enterprise")}
+          onClick={() => handleAuthRequest("enterprise")}
           className="bg-white text-black border-2 border-gray-300 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors"
         >
           Партнерам
         </button>
+      </div>
+    </div>
+  );
+
+  const AuthPage = () => (
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
+      <div className="flex items-center gap-4 mb-16">
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 border-2 border-gray-400 w-12 h-12 top-2 left-2"></div>
+          <div className="absolute inset-0 bg-gray-800 w-12 h-12 transform rotate-45 top-2 left-2">
+            <div className="absolute inset-3 border border-white"></div>
+          </div>
+        </div>
+        <div className="text-left">
+          <h1 className="text-2xl font-bold text-black">ИНДУСТИАЛЬНЫЕ</h1>
+          <p className="text-lg text-gray-600">данные Москвы</p>
+        </div>
+      </div>
+
+      <div className="w-full max-w-md">
+        <h2 className="text-3xl font-bold text-black text-center mb-12">
+          Авторизация
+        </h2>
+
+        <div className="space-y-4 mb-8">
+          <input
+            type="text"
+            placeholder="Логин"
+            className="w-full bg-gray-200 text-gray-700 px-6 py-4 rounded-full placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          />
+          <input
+            type="password"
+            placeholder="Пароль"
+            className="w-full bg-gray-200 text-gray-700 px-6 py-4 rounded-full placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          />
+        </div>
+
+        <div className="flex flex-col items-center gap-4">
+          <button
+            onClick={handleLogin}
+            className="bg-black text-white px-12 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors"
+          >
+            Войти
+          </button>
+          <button className="text-gray-500 hover:text-gray-700 transition-colors">
+            Забыли пароль?
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -295,6 +353,7 @@ function App() {
   );
 
   if (currentPage === "welcome") return <WelcomePage />;
+  if (currentPage === "auth") return <AuthPage />;
   if (currentPage === "enterprise") return <EnterprisePage />;
   if (currentPage === "success") return <SuccessPage />;
   if (currentPage === "dashboard") return <DashboardPage />;
