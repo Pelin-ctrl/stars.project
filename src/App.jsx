@@ -343,22 +343,29 @@ function App() {
               </svg>
               Сформировать отчет
             </button>
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gray-400 rounded-full"></div>
-              <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
-                <span className="text-xs">1</span>
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center border-2 border-gray-200">
+                <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                </svg>
               </div>
-              <svg
-                className="w-5 h-5 text-gray-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              
+              <div className="relative">
+                <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
+                  </svg>
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
+                  <span className="text-xs text-white font-bold">1</span>
+                </div>
+              </div>
+              
+              <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors">
+                <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"/>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -405,13 +412,11 @@ function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-3 space-y-6">
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-gray-300 h-48 rounded-lg"></div>
                 <div className="bg-gray-300 h-48 rounded-lg"></div>
                 <div className="bg-gray-300 h-48 rounded-lg"></div>
               </div>
-
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-gray-300 h-48 rounded-lg"></div>
@@ -427,7 +432,6 @@ function App() {
             </div>
 
             <div className="lg:col-span-1 space-y-6">
-
               <div className="grid grid-cols-1 gap-4">
                 <div className="bg-gray-400 p-6 rounded-lg"></div>
                 <div className="bg-gray-400 p-6 rounded-lg"></div>
