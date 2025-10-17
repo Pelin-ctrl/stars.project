@@ -20,29 +20,40 @@ function App() {
 
   const WelcomePage = () => (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
-      <div className="w-40 h-40 bg-gray-300 rounded-lg mb-16"></div>
+      <div className="flex items-center gap-4 mb-16">
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 border-2 border-gray-400 w-12 h-12 top-2 left-2"></div>
+          <div className="absolute inset-0 bg-gray-800 w-12 h-12 transform rotate-45 top-2 left-2">
+            <div className="absolute inset-3 border border-white"></div>
+          </div>
+        </div>
+        <div className="text-left">
+          <h1 className="text-2xl font-bold text-black">ИНДУСТИАЛЬНЫЕ</h1>
+          <p className="text-lg text-gray-600">данные Москвы</p>
+        </div>
+      </div>
 
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
           Добро пожаловать
-        </h1>
-        <h2 className="text-3xl md:text-4xl font-bold text-black">
-          в Индустиальные данные Москвы
         </h2>
+        <h3 className="text-3xl md:text-4xl font-bold text-black">
+          в Индустиальные данные Москвы
+        </h3>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={() => setCurrentPage("dashboard")}
-          className="bg-gray-800 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-700 transition-colors"
+          className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors"
         >
           Руководству ДИПП
         </button>
         <button
           onClick={() => setCurrentPage("enterprise")}
-          className="bg-gray-800 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-700 transition-colors"
+          className="bg-white text-black border-2 border-gray-300 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors"
         >
-          Предприятиям
+          Партнерам
         </button>
       </div>
     </div>
